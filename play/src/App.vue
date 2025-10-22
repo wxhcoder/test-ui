@@ -1,10 +1,7 @@
-
-
 <template>
-  <div>组件</div>
+  <fl-icon :color="'red'">组件</fl-icon>
 </template>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 <style scoped>
 .logo {
   height: 6em;

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@test-ui/components':
+        specifier: workspace:^
+        version: link:packages/components
       '@test-ui/hooks':
         specifier: workspace:^
         version: link:packages/hooks
