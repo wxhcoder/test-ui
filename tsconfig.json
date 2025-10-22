@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    // 指定编译后的输出目录
+    "outDir": "dist",
+    // 指定ECMAScript目标版本，这里是ES2021
+    "target": "ES2023",
+    // 指定生成的模块代码，esnext表示使用最新的ES模块语法
+    "module": "esnext",
+    // 生成相应的.map文件，方便调试
+    "sourceMap": true,
+    // 指定模块解析策略，node表示使用Node.js的模块解析方式
+    "moduleResolution": "node",
+    // 不允许编译JavaScript文件
+    "allowJs": false,
+    // 启用所有严格类型检查选项
+    "strict": true,
+    // 报告未使用的局部变量的错误
+    "noUnusedLocals": true,
+    // 允许导入JSON模块
+    "resolveJsonModule": true,
+    // 允许从没有默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 支持CommonJS和ES模块之间的互操作性
+    "esModuleInterop": true,
+    // 不删除注释
+    "removeComments": false,
+    // 指定项目的根目录
+    "rootDir": ".",
+    "baseUrl": ".",
+    // 保留符号链接
+    "preserveSymlinks": true,
+    // 启用项目引用功能，用于构建依赖关系
+    "composite": true,
+    // 指定JSX代码生成方式，preserve表示保留JSX以便后续转换
+    "jsx": "preserve",
+    // 指定JSX语法转换时使用的运行时库，这里设置为vue表示使用Vue的JSX转换器
+    "jsxImportSource": "vue",
+    // 指定要包含的库文件
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    // 指定要包含的类型声明文件
+    "types": ["vite/client", "vue"],
+    //设置路径映射别名
+    "paths": {
+      "@test-ui/components": ["packages/components"],
+      "@test-ui/components/*": ["packages/components/*"],
+      "@test-ui/utils": ["packages/utils"],
+      "@test-ui/utils/*": ["packages/utils/*"],
+      "@test-ui/hooks": ["packages/hooks"],
+      "@test-ui/directives": ["packages/directives"],
+      "@test-ui/constants": ["packages/constants"],
+      "test-ui": ["packages/test-ui"]
+    },
+    // "types": ["unplugin-vue-macros/macros-global"],
+    // 跳过声明文件的类型检查
+    "skipLibCheck": true,
+    // 禁止隐式any类型
+    "noImplicitAny": true,
+    // 为每个TypeScript或JavaScript文件生成.d.ts声明文件
+    "declaration": true,
+    // 启用装饰器支持
+    "experimentalDecorators": true,
+    // 强制文件名大小写一致性
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    // 指定需要参与编译的源码目录/文件
+    "packages", // 项目内部所有子包（monorepo 结构）
+    "typings", // 全局类型声明目录
+    "vite.config.ts" // Vite 构建配置文件本身
+  ],
+  "exclude": ["node_modules", "**/dist", "**/__tests__/**/*", "**/gulpfile.ts", "**/test-helper", "packages/test-utils", "**/*.md"]
+}
