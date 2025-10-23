@@ -1,0 +1,19 @@
+@use './mixins/minixs' as *;
+
+@include b('vl'){
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  border: 1px solid red;
+  width: 100%;
+  @include e('scroll-bar'){
+
+  }
+  @include e('scroll-list'){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+}

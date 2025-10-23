@@ -1,0 +1,46 @@
+@use './mixins/minixs.scss' as *;
+
+@include b('input') {
+    --fl-input-height: 32px;
+    --fl-input-inner-height: 30px;
+    display: inline-flex;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    height: var(--fl-input-height);
+    box-sizing: border-box;
+    @include e('wrapper') {
+        display: inline-flex;
+        flex: 1;
+        align-items: center;
+    }
+    @include e('inner') {
+        width: 100%;
+        height: var(--fl-input-inner-height);
+        padding: 0;
+        margin: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        flex: 1;
+        background-color: transparent;
+    }
+    @include m('large') {
+        --fl-input-height: 40px;
+        --fl-input-inner-height: 38px;
+    }
+    @include m('small') {
+        --fl-input-height: 24px;
+        --fl-input-inner-height: 22px;
+    }
+
+    @include is('disabled') {
+        cursor: not-allowed;
+        .#{$namespace}-input__wrapper {
+            cursor: not-allowed;
+        }
+
+        .#{$namespace}-input__inner {
+            cursor: not-allowed;
+        }
+    }
+}

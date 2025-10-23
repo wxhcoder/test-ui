@@ -4,6 +4,7 @@ declare module "vue" {
   // GlobalComponents for Volar
   export interface GlobalComponents {
     FlIcon: typeof import("test-ui")["FlIcon"];
+    FlButton: typeof  import("test-ui")["FlButton"];
   }
 }
 export {}

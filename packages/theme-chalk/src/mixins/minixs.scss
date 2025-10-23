@@ -1,0 +1,76 @@
+// 将 config.scss 文件当作模块导入，并且使用其中的变量
+@use 'config' as *;
+
+// 再将 config.scss 中的内容转发出去，方便其他地方直接使用这个文件时也能获得 config 的内容
+@forward 'config';
+
+//$B 生命变量的代码
+//#{} 是插值代码 最后输出 类似.app-button
+//@content 是占位符，等待 mixin 被调用时传入内容
+//@at-root 的作用是吧当前的样式块提升到根元素上，而不是嵌套在当前元素下
+//列如: .a {
+//  .a__b {
+//    @content;
+//  }
+//}
+// 提升后: .a__b {
+//  @content;
+//}
+//@mixin 是scss/sass中的函数  在哪里调用就把mixin中的样式插入到相应的位置中，通过@include 调用
+//@include 是scss/sass中的函数  调用mixin中的样式，通过@include 调用
+
+// ----------------------
+// 1. 定义 block（块级作用域）
+// ----------------------
+@mixin b($block) {
+  // 定义当前 Block 的命名规则：命名空间 + "-" + 传入的 block 名称
+  $B: $namespace + '-' + $block;
+
+  // 生成 block 的 class，例如：.app-button
+  .#{$B} {
+    // 占位符，等待 mixin 被调用时传入内容
+    @content;
+  }
+}
+
+// ----------------------
+// 2. 定义 when（状态修饰符）
+// ----------------------
+@mixin is($state) {
+  @at-root {
+    // 在父级元素上追加状态 class，例如：.is-active、.is-disabled
+    &.#{$state-prefix}#{$state} {
+      @content;
+    }
+  }
+}
+
+// ----------------------
+// 3. 定义 m（修饰符 Modifier）
+// ----------------------
+@mixin m($modifier) {
+  @at-root {
+    // 在当前 class 后追加修饰符，例如：.button--large、.button--primary
+    #{& + $modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
+
+// ----------------------
+// 4. 定义 e（元素 Element）
+// ----------------------
+@mixin e($element) {
+  @at-root {
+    // 在当前 class 下生成元素 class，例如：.button__icon、.card__header
+    #{& + $element-separator + $element} {
+      @content;
+    }
+  }
+}
+
+@mixin button-variant($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+}

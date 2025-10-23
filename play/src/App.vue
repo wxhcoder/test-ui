@@ -1,7 +1,12 @@
 <template>
-  <fl-icon :color="'red'" :size="24">组件</fl-icon>
+  <fl-icon :color="'red'" :size="24">
+    <AccessTime20Filled></AccessTime20Filled>
+  </fl-icon>
+  <fl-button disabled> 按钮 </fl-button>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AccessTime20Filled } from '@vicons/fluent'
+</script>
 <style scoped>
 .logo {
   height: 6em;

@@ -1,0 +1,44 @@
+@use 'mixins/minixs' as *;
+
+@include b('tree') {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+@include b('tree-node') {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  cursor: pointer;
+  &:hover {
+    background: #838af8;
+  }
+  &.is-focusable {
+    background: #838af8;
+  }
+  &.is-disabled{
+    color: #6e6f71;
+    cursor: not-allowed;
+  }
+  @include e('expand-icon') {
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+    &.expand {
+      transform: rotate(90deg);
+    }
+    &.is-leaf {
+      color: rgba(0, 0, 0, 0) !important;
+      cursor: default;
+    }
+  }
+
+  @include e('content') {
+   display: flex;
+   align-items: center;
+  }
+}

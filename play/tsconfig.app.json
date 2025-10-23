@@ -21,5 +21,5 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "../typing/global.d.ts"
-  ]
+, "src/main.ts"  ]
 }

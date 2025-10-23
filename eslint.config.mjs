@@ -34,7 +34,7 @@ export default defineConfig([
   },
   {
     //那些文件不被eslint校验
-    ignores: ['.css', '*.d.ts', '.scss', '.html', '.json']
+    ignores: ['.css', '.scss', '.html', '.json']
   },
   {
     rules: {

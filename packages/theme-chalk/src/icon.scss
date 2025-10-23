@@ -1,0 +1,11 @@
+@use 'mixins/minixs' as *;
+
+//em 和 rem 的区别 em 是相对与当前类里的font-size ,rem是对于根元素的font-size
+//计算逻辑就是 1em = 1 * font-size 1.5em = 1.5 * font-size
+@include b('icon'){
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  justify-content: center;
+  align-items: center;
+}
