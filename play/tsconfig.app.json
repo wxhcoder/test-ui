@@ -4,7 +4,7 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": ["vite/client"],
     "baseUrl": ".",
-    "paths": { // 路径映射：把“test-ui”这个裸导入重定向到本地源码包，方便在 play 项目中直接调试组件库
+    "paths": {
       "test-ui": ["../packages/test-ui"], 
     },
 
