@@ -1,5 +1,5 @@
 <template>
-  <fl-icon :color="'red'">组件</fl-icon>
+  <fl-icon :color="'red'" :size="24">组件</fl-icon>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
@@ -16,4 +16,3 @@
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
-

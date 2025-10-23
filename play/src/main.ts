@@ -10,4 +10,3 @@ plugin.forEach((component) => {
   app.use(component)
 })
 app.mount('#app')
-
