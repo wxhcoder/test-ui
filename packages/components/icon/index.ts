@@ -4,8 +4,8 @@ const FlIcon = withInstall(_Icon);
 export * from "./src/icon";
 export default FlIcon;
 
-declare module "vue" {
-  export interface GlobalComponents {
-    FlIcon: typeof FlIcon;
-  }
-}
+// declare module "vue" {
+//   export interface GlobalComponents {
+//     FlIcon: typeof FlIcon;
+//   }
+// }

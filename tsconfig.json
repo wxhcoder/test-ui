@@ -62,11 +62,20 @@
     // 强制文件名大小写一致性
     "forceConsistentCasingInFileNames": true
   },
+  // 指定需要参与编译的源码目录/文件
   "include": [
     // 指定需要参与编译的源码目录/文件
     "packages", // 项目内部所有子包（monorepo 结构）
-    "typings", // 全局类型声明目录
+    "typing", // 全局类型声明目录
     "vite.config.ts" // Vite 构建配置文件本身
   ],
-  "exclude": ["node_modules", "**/dist", "**/__tests__/**/*", "**/gulpfile.ts", "**/test-helper", "packages/test-utils", "**/*.md"]
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**/*",
+    "**/gulpfile.ts",
+    "**/test-helper",
+    "packages/test-utils",
+    "**/*.md"
+  ]
 }
