@@ -1,4 +1,6 @@
 export { default as FlIcon } from './icon'
 export { default as FlButton } from './button'
+export { default as FlInput } from './input'
 export * from './icon'
 export * from './button'
+export * from './input'

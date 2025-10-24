@@ -3,9 +3,13 @@
     <AccessTime20Filled></AccessTime20Filled>
   </fl-icon>
   <fl-button disabled> 按钮 </fl-button>
+  <fl-input v-model="inputValue"></fl-input>
+  {{ inputValue }}
 </template>
 <script setup lang="ts">
+import { ref } from 'vue'
 import { AccessTime20Filled } from '@vicons/fluent'
+const inputValue = ref('')
 </script>
 <style scoped>
 .logo {

@@ -5,6 +5,7 @@ declare module "vue" {
   export interface GlobalComponents {
     FlIcon: typeof import("test-ui")["FlIcon"];
     FlButton: typeof  import("test-ui")["FlButton"];
+    FlInput: typeof import("test-ui")["FlInput"];
   }
 }
 export {}
