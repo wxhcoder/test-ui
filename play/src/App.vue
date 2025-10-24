@@ -3,13 +3,16 @@
     <AccessTime20Filled></AccessTime20Filled>
   </fl-icon>
   <fl-button disabled> 按钮 </fl-button>
-  <fl-input v-model="inputValue"></fl-input>
+  <fl-input v-model="inputValue" style="width: 200px" placeholder="请输入" :role="roleValue">
+  </fl-input>
   {{ inputValue }}
+  <fl-input v-model="roleValue" style="width: 200px" placeholder="请输入Role" role></fl-input>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AccessTime20Filled } from '@vicons/fluent'
 const inputValue = ref('')
+const roleValue = ref('')
 </script>
 <style scoped>
 .logo {
