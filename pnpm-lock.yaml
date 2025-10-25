@@ -69,6 +69,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
         version: 6.0.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6))(vue@3.5.22(typescript@5.9.3))
+      fast-glob:
+        specifier: ^3.3.3
+        version: 3.3.3
       rollup:
         specifier: ^4.52.5
         version: 4.52.5

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "full": "tsx full-bundle.ts"
+    "buildFullBundle": "tsx full-bundle.ts",
+    "buildModules": "tsx modules.ts",
+    "copy": "tsx copy.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +16,11 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
     "@vitejs/plugin-vue": "^6.0.1",
+    "fast-glob": "^3.3.3",
     "rollup": "^4.52.5",
     "rollup-plugin-esbuild": "^6.2.1",
     "tsx": "^4.20.6",
     "vue-macros": "^3.1.1"
   }
 }
+

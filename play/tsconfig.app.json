@@ -5,7 +5,7 @@
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
-      "test-ui": ["../packages/test-ui"], 
+      "test-ui": ["../packages/test-ui"]
     },
 
     /* Linting */
@@ -16,10 +16,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "../typing/global.d.ts"
-, "src/main.ts"  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../typing/global.d.ts", "src/main.ts"]
 }
+

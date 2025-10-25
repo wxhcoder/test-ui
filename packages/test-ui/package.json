@@ -1,0 +1,22 @@
+{
+  "name": "test-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "es/index.d.ts",
+  "module": "es/index.mjs",
+  "unpkg": "dist/index.full.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
