@@ -6,7 +6,8 @@
   "scripts": {
     "buildFullBundle": "tsx full-bundle.ts",
     "buildModules": "tsx modules.ts",
-    "copy": "tsx copy.ts"
+    "copy": "tsx copy.ts",
+    "buildTypes": "tsx types-definitions.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "fast-glob": "^3.3.3",
     "rollup": "^4.52.5",
     "rollup-plugin-esbuild": "^6.2.1",
+    "ts-morph": "^27.0.2",
     "tsx": "^4.20.6",
     "vue-macros": "^3.1.1"
   }

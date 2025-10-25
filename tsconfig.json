@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    // 指定项目的根目录
+    "rootDir": ".",
+    "baseUrl": ".",
     // 指定编译后的输出目录
     "outDir": "dist",
     // 指定ECMAScript目标版本，这里是ES2021
@@ -24,9 +27,6 @@
     "esModuleInterop": true,
     // 不删除注释
     "removeComments": false,
-    // 指定项目的根目录
-    "rootDir": ".",
-    "baseUrl": ".",
     // 保留符号链接
     "preserveSymlinks": true,
     // 启用项目引用功能，用于构建依赖关系
