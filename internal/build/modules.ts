@@ -4,15 +4,11 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import Vue from '@vitejs/plugin-vue'
 import { epOutput, epRoot, pkgRoot } from '../utils/paths'
+import { excludeFiles } from '../utils/exclude'
 import VueMacros from 'vue-macros/vite'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import replace from '@rollup/plugin-replace'
 import glob from 'fast-glob'
-
-const excludeFiles = (files: string[]) => {
-  const excludes = ['node_modules']
-  return files.filter((path) => !excludes.some((exclude) => path.includes(exclude)))
-}
 
 //构建全量打包
 const buildModules = async () => {
