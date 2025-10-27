@@ -16,6 +16,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
+    "@types/fs-extra": "^11.0.4",
     "@vitejs/plugin-vue": "^6.0.1",
     "fast-glob": "^3.3.3",
     "rollup": "^4.52.5",
@@ -25,4 +26,3 @@
     "vue-macros": "^3.1.1"
   }
 }
-

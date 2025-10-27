@@ -35,7 +35,7 @@ importers:
         version: 9.38.0
       '@vitejs/plugin-vue-jsx':
         specifier: ^5.1.1
-        version: 5.1.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2))(vue@3.5.22(typescript@5.9.3))
+        version: 5.1.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6))(vue@3.5.22(typescript@5.9.3))
       eslint:
         specifier: ^9.38.0
         version: 9.38.0(jiti@2.6.1)
@@ -66,6 +66,9 @@ importers:
       '@rollup/plugin-replace':
         specifier: ^6.0.2
         version: 6.0.2(rollup@4.52.5)
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
         version: 6.0.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6))(vue@3.5.22(typescript@5.9.3))
@@ -92,6 +95,15 @@ importers:
 
   packages/hooks: {}
 
+  packages/test-ui:
+    dependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      vue:
+        specifier: ^3.5.22
+        version: 3.5.22(typescript@5.9.3)
+
   packages/theme-chalk: {}
 
   packages/utils: {}
@@ -110,7 +122,7 @@ importers:
         version: 0.13.0
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
-        version: 6.0.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2))(vue@3.5.22(typescript@5.9.3))
+        version: 6.0.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6))(vue@3.5.22(typescript@5.9.3))
       '@vue/tsconfig':
         specifier: ^0.8.1
         version: 0.8.1(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
@@ -119,7 +131,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^7.1.7
-        version: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)
+        version: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)
       vue-tsc:
         specifier: ^3.1.0
         version: 3.1.1(typescript@5.9.3)
@@ -881,8 +893,14 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==, tarball: https://registry.npmmirror.com/@types/estree/-/estree-1.0.8.tgz}
 
+  '@types/fs-extra@11.0.4':
+    resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==, tarball: https://registry.npmmirror.com/@types/fs-extra/-/fs-extra-11.0.4.tgz}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==, tarball: https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.15.tgz}
+
+  '@types/jsonfile@6.1.4':
+    resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==, tarball: https://registry.npmmirror.com/@types/jsonfile/-/jsonfile-6.1.4.tgz}
 
   '@types/node@24.9.1':
     resolution: {integrity: sha512-QoiaXANRkSXK6p0Duvt56W208du4P9Uye9hWLWgGMDTEoKPhuenzNcC4vGUmrNkiOKTlIrBoyNQYNpSwfEZXSg==, tarball: https://registry.npmmirror.com/@types/node/-/node-24.9.1.tgz}
@@ -2821,7 +2839,16 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/fs-extra@11.0.4':
+    dependencies:
+      '@types/jsonfile': 6.1.4
+      '@types/node': 24.9.1
+
   '@types/json-schema@7.0.15': {}
+
+  '@types/jsonfile@6.1.4':
+    dependencies:
+      '@types/node': 24.9.1
 
   '@types/node@24.9.1':
     dependencies:
@@ -2924,14 +2951,14 @@ snapshots:
 
   '@vicons/fluent@0.13.0': {}
 
-  '@vitejs/plugin-vue-jsx@5.1.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2))(vue@3.5.22(typescript@5.9.3))':
+  '@vitejs/plugin-vue-jsx@5.1.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6))(vue@3.5.22(typescript@5.9.3))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-syntax-typescript': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-typescript': 7.28.5(@babel/core@7.28.5)
       '@rolldown/pluginutils': 1.0.0-beta.44
       '@vue/babel-plugin-jsx': 1.5.0(@babel/core@7.28.5)
-      vite: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)
+      vite: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)
       vue: 3.5.22(typescript@5.9.3)
     transitivePeerDependencies:
       - supports-color
@@ -2940,12 +2967,6 @@ snapshots:
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.29
       vite: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)
-      vue: 3.5.22(typescript@5.9.3)
-
-  '@vitejs/plugin-vue@6.0.1(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2))(vue@3.5.22(typescript@5.9.3))':
-    dependencies:
-      '@rolldown/pluginutils': 1.0.0-beta.29
-      vite: 7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)
       vue: 3.5.22(typescript@5.9.3)
 
   '@volar/language-core@2.4.23':
@@ -4166,21 +4187,6 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   varint@6.0.0: {}
-
-  vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2):
-    dependencies:
-      esbuild: 0.25.11
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-      postcss: 8.5.6
-      rollup: 4.52.5
-      tinyglobby: 0.2.15
-    optionalDependencies:
-      '@types/node': 24.9.1
-      fsevents: 2.3.3
-      jiti: 2.6.1
-      sass: 1.93.2
-      sass-embedded: 1.93.2
 
   vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6):
     dependencies:

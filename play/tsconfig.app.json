@@ -4,9 +4,9 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": ["vite/client"],
     "baseUrl": ".",
-    "paths": {
-      "test-ui": ["../packages/test-ui"]
-    },
+    // "paths": {
+    //   "test-ui": ["../packages/test-ui"]
+    // },
 
     /* Linting */
     "strict": true,
@@ -16,6 +16,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../typing/global.d.ts", "src/main.ts"]
+  // "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../typing/global.d.ts", "src/main.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.ts"]
 }
 

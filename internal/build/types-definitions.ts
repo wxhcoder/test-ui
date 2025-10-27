@@ -1,18 +1,19 @@
 import { projRoot, buildOutput } from '../utils/paths'
-import { Project } from 'ts-morph'
-import { pkgRoot, epRoot } from '../utils/paths'
+import { Project, SourceFile } from 'ts-morph'
+import { pkgRoot, epRoot, pathRewriter } from '../utils/paths'
 import { excludeFiles } from '../utils/exclude'
 import glob from 'fast-glob'
-import { resolve, relative } from 'path'
-import { readFile } from 'fs/promises'
+import { resolve, relative, dirname } from 'path'
+import { readFile, writeFile, mkdir } from 'fs/promises'
 import { parse, compileScript } from 'vue/compiler-sfc'
-
+import chalk from 'chalk'
 const TS_CONFIG_FILE_PATH = resolve(projRoot, 'tsconfig.json')
 // buildOutput : D: /IdeaProject/test-ui/dist
 const outDir = resolve(buildOutput, 'types')
 
 /**
  * 添加项目的 TypeScript 或者.vue 源文件 到 ts-morph
+ * 这里不能将工行目录@test-ui 替换成 包名test-ui,这样ts-morph 会报错
  * @param project ts-morph 项目实例
  */
 async function addSourceFiles(project: Project) {
@@ -40,6 +41,7 @@ async function addSourceFiles(project: Project) {
   )
   console.log('组件文件', filePaths)
   console.log('包的入口文件', epPaths)
+  const sourceFiles: SourceFile[] = []
   await Promise.all([
     ...filePaths.map(async (file) => {
       if (file.endsWith('.vue')) {
@@ -63,12 +65,17 @@ async function addSourceFiles(project: Project) {
           // process.cwd()：获取当前进程工作目录
           // path.relative() 方法根据当前工作目录返回从 from 到 to 的相对路径
           //D:/IdeaProject/test-ui/packages/components/button/src/button.vue => components/button/src/button.vue.ts
-          project.createSourceFile(`${relative(process.cwd(), file)}.${lang}`, content)
+          const sourceFile = project.createSourceFile(
+            `${relative(process.cwd(), file)}.${lang}`,
+            content
+          )
+          sourceFiles.push(sourceFile)
         }
         //
       } else {
         // 如果不是 .vue 文件则 addSourceFileAtPath 添加文件路径的方式添加 ts-morph 项目的 TypeScript 源文件
-        project.addSourceFileAtPath(file)
+        const sourceFile = project.addSourceFileAtPath(file)
+        sourceFiles.push(sourceFile)
       }
     }),
     ...epPaths.map(async (file) => {
@@ -76,9 +83,10 @@ async function addSourceFiles(project: Project) {
       //epRoot : D:/IdeaProject/test-ui/packages/test-ui / epPaths: [ 'components.ts', 'defaults.ts', 'index.ts', 'install.ts' ]
       const content = await readFile(resolve(epRoot, file), 'utf-8')
       // 以构建新的文件路径以达到移动的目的 pkgRoot:D:/IdeaProject/test-ui/packages
-      project.createSourceFile(resolve(pkgRoot, file), content)
+      sourceFiles.push(project.createSourceFile(resolve(pkgRoot, file), content))
     })
   ])
+  return sourceFiles
 }
 /**
  * 进行类型检查
@@ -117,11 +125,38 @@ const generateTypesDefinitions = async () => {
     skipAddingFilesFromTsConfig: true,
     tsConfigFilePath: TS_CONFIG_FILE_PATH
   })
-
-  await addSourceFiles(project)
+  //解析ts文件
+  const sourceFiles = await addSourceFiles(project)
   // 进行类型检查
   typeCheck(project)
-  // 生成类型声明文件
-  project.emit()
+  // 生成类型声明文件 写入内存方便后续流程替换
+  await project.emit({
+    emitOnlyDtsFiles: true
+  })
+  //处理.d.ts文件内 @test-ui 替换为 test-ui
+  const tasks = sourceFiles.map(async (sourceFile) => {
+    const relativePath = relative(pkgRoot, sourceFile.getFilePath())
+    const emitOutput = sourceFile.getEmitOutput()
+    const emitFiles = emitOutput.getOutputFiles()
+    if (emitFiles.length === 0) {
+      throw new Error(`Emit no file: ${chalk.bold(relativePath)}`)
+    }
+    const subTasks = emitFiles.map(async (outputFile) => {
+      const filepath = outputFile.getFilePath()
+      await mkdir(dirname(filepath), {
+        recursive: true
+      })
+
+      //filepath :D:/IdeaProject/test-ui/dist/types/packages/index.d.ts
+      const text = pathRewriter()(outputFile.getText())
+      console.log(`${chalk.yellow(text)}`, '替换文本')
+      console.log(`${chalk.yellow(filepath)}`, '文件路径:')
+      await writeFile(filepath, pathRewriter()(outputFile.getText()), 'utf8')
+
+      console.info(chalk.green(`Definition for file: ${chalk.bold(relativePath)} generated`))
+    })
+    await Promise.all(subTasks)
+  })
+  await Promise.all(tasks)
 }
 generateTypesDefinitions()
