@@ -2,7 +2,7 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "types": ["vite/client"],
+    "types": ["vite/client", "test-ui/global"],
     "baseUrl": ".",
     // "paths": {
     //   "test-ui": ["../packages/test-ui"]
@@ -19,4 +19,3 @@
   // "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../typing/global.d.ts", "src/main.ts"]
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.ts"]
 }
-

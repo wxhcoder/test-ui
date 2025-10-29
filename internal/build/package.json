@@ -7,13 +7,15 @@
     "buildFullBundle": "tsx full-bundle.ts",
     "buildModules": "tsx modules.ts",
     "copy": "tsx copy.ts",
-    "buildTypes": "tsx types-definitions.ts"
+    "buildTypes": "tsx types-definitions.ts",
+    "buildTypesApi": "tsx types-api-extractor.ts "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.53.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
     "@types/fs-extra": "^11.0.4",
