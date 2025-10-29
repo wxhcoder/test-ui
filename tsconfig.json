@@ -60,7 +60,9 @@
     // 启用装饰器支持
     "experimentalDecorators": true,
     // 强制文件名大小写一致性
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    // 开启“单文件编译”模式：每个文件必须能独立编译，禁止跨文件常量合并等依赖，确保与 Babel、esbuild 等单文件工具兼容
+    "isolatedModules": true,
   },
   // 指定需要参与编译的源码目录/文件
   "include": [
