@@ -89,4 +89,4 @@ export const generateTypesDefinitions = async () => {
   await copy(entryDir, typesDir)
   await remove(entryDir)
 }
-generateTypesDefinitions()
+// generateTypesDefinitions()

@@ -8,7 +8,7 @@ import { epRoot, epOutput, epTyping, buildOutput } from '../utils/paths'
 const epPackage = resolve(epRoot, 'package.json')
 const epTypes = resolve(epTyping, 'global.d.ts')
 //将/packages/test-ui/package.json文件移动到dist目录下
-const copy = async () => {
+export const copy = async () => {
   await copyFile(epPackage, join(epOutput, 'package.json'))
   console.info('package.json copy success')
   await cp(epTypes, join(epOutput, 'global.d.ts'))
@@ -30,4 +30,4 @@ const copy = async () => {
   await remove(resolve(buildOutput, 'tsconfig.tsbuildinfo'))
 }
 // 执行复制操作
-await copy()
+// await copy()

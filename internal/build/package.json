@@ -8,7 +8,8 @@
     "buildModules": "tsx modules.ts",
     "copy": "tsx copy.ts",
     "buildTypes": "tsx types-definitions.ts",
-    "buildTypesApi": "tsx types-api-extractor.ts "
+    "buildTypesApi": "tsx types-api-extractor.ts ",
+    "start": "gulp --require node_modules/tsx/dist/loader.cjs -f gulp-task.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +27,9 @@
     "ts-morph": "^27.0.2",
     "tsx": "^4.20.6",
     "vue-macros": "^3.1.1"
+  },
+  "dependencies": {
+    "gulp": "^5.0.1"
   }
+
 }

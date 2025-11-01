@@ -10,7 +10,7 @@ import VueJsx from '@vitejs/plugin-vue-jsx'
 import replace from '@rollup/plugin-replace'
 
 //构建全量打包
-const buildFullEntry = async () => {
+export const buildFullEntry = async () => {
   const bundle = await rollup({
     input: resolve(epRoot, 'index.ts'),
     plugins: [
@@ -45,4 +45,4 @@ const buildFullEntry = async () => {
     }
   })
 }
-buildFullEntry()
+// buildFullEntry()

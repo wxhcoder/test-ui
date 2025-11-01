@@ -11,7 +11,7 @@ import replace from '@rollup/plugin-replace'
 import glob from 'fast-glob'
 
 //构建全量打包
-const buildModules = async () => {
+export const buildModules = async () => {
   //D:/IdeaProject/test-ui/packages/ 相对与这个路径获取文件
   const input = await glob('**/*.{js,ts,vue}', {
     cwd: pkgRoot,
@@ -65,4 +65,4 @@ const buildModules = async () => {
     entryFileNames: `[name].cjs` // [name] 表示入口文件的文件名（不包含扩展名），也就是生产 .mjs 结尾的文件
   })
 }
-buildModules()
+// buildModules()
