@@ -27,7 +27,7 @@ const buildFullEntry = async () => {
         preventAssignment: true
       }),
       nodeResolve({
-        extensions: ['.ts', '.tsx']
+        extensions: ['.mjs', '.js', '.json', '.ts', '.tsx']
       }),
       esbuild({})
     ],
@@ -40,6 +40,7 @@ const buildFullEntry = async () => {
     name: PKG_CAMELCASE_NAME,
     exports: 'named',
     globals: {
+      // 将外部依赖 'vue' 映射到全局变量 'Vue'，避免打包时重复引入
       vue: 'Vue'
     }
   })

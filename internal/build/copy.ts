@@ -1,5 +1,6 @@
 //读取packages/test-ui/package.json文件
 import { copyFile, cp } from 'fs/promises'
+import { remove } from 'fs-extra'
 import { join, resolve } from 'path'
 import { epRoot, epOutput, epTyping, buildOutput } from '../utils/paths'
 //将package.json文件移动到dist目录下
@@ -23,6 +24,10 @@ const copy = async () => {
     force: true // 如果目标存在会覆盖
   })
   console.info('lib copy success')
+  //删除types文件夹
+  await remove(resolve(buildOutput, 'types'))
+  //tsconfig.tsbuildinfo
+  await remove(resolve(buildOutput, 'tsconfig.tsbuildinfo'))
 }
 // 执行复制操作
 await copy()

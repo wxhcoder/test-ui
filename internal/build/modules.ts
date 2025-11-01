@@ -34,9 +34,14 @@ const buildModules = async () => {
         preventAssignment: true
       }),
       nodeResolve({
-        extensions: ['.ts', '.tsx']
+        extensions: ['.mjs', '.js', '.json', '.ts', '.tsx']
       }),
-      esbuild({})
+      esbuild({
+        sourceMap: true,
+        loaders: {
+          '.vue': 'ts'
+        }
+      })
     ],
     //排除不要的包
     external: ['vue']
