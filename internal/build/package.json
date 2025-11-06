@@ -9,6 +9,7 @@
     "copy": "tsx copy.ts",
     "buildTypes": "tsx types-definitions.ts",
     "buildTypesApi": "tsx types-api-extractor.ts ",
+    "buildStyle": "gulp --require node_modules/tsx/dist/loader.cjs -f build-style.ts",
     "start": "gulp --require node_modules/tsx/dist/loader.cjs -f gulp-task.ts"
   },
   "keywords": [],
@@ -29,7 +30,7 @@
     "vue-macros": "^3.1.1"
   },
   "dependencies": {
-    "gulp": "^5.0.1"
+    "@types/gulp-sass": "^6.0.0",
+    "gulp-sass": "^6.0.1"
   }
-
 }

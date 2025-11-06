@@ -19,6 +19,8 @@
     "@test-ui/components": "workspace:^",
     "@test-ui/hooks": "workspace:^",
     "@test-ui/theme-chalk": "workspace:^",
+    "@types/gulp": "^4.0.18",
+    "gulp": "^5.0.1",
     "rimraf": "^6.1.0",
     "sass": "^1.93.2",
     "sass-embedded": "^1.93.2",
