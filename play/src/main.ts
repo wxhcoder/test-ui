@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
-import '@test-ui/theme-chalk/src/index.scss'
+import 'test-ui/theme-chalk/index.css'
+// import '@test-ui/theme-chalk/dist/index.css'
+
 // import { FlButton, FlIcon, FlInput } from '../../packages/test-ui'
 // const plugin = [FlIcon, FlButton, FlInput]
 // import TestUI from '../../packages/test-ui'
