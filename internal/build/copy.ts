@@ -2,7 +2,7 @@
 import { copyFile, cp } from 'fs/promises'
 import { remove } from 'fs-extra'
 import { join, resolve } from 'path'
-import { epRoot, epOutput, epTyping, buildOutput } from '../utils/paths'
+import { epRoot, epOutput, epTyping, buildOutput, themeChalkFolder } from '../utils/paths'
 //将package.json文件移动到dist目录下
 // epRoot : D:/IdeaProject/test-ui/packages/test-ui
 const epPackage = resolve(epRoot, 'package.json')
@@ -28,6 +28,8 @@ export const copy = async () => {
   await remove(resolve(buildOutput, 'types'))
   //tsconfig.tsbuildinfo
   await remove(resolve(buildOutput, 'tsconfig.tsbuildinfo'))
+  //删除 theme-chalk/dist 目录
+  await remove(resolve(themeChalkFolder, 'dist'))
 }
 // 执行复制操作
 // await copy()

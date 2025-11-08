@@ -1,5 +1,5 @@
 import { Transform } from 'stream'
-import { epOutput, pkgRoot } from '../utils/paths'
+import { epOutput, pkgRoot, themeChalkFolder } from '../utils/paths'
 import { resolve, basename } from 'path'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
@@ -13,7 +13,7 @@ import Vinyl from 'vinyl'
 import chalk from 'chalk'
 
 const distFolder = resolve(pkgRoot, 'theme-chalk', 'dist')
-const themeChalkFolder = resolve(pkgRoot, 'theme-chalk')
+
 const distBundle = resolve(epOutput, 'theme-chalk')
 const stylePath = resolve(pkgRoot, 'theme-chalk', 'src', '*.scss')
 consola.info(chalk.green(distFolder), '打包输出目录')

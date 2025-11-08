@@ -2,6 +2,12 @@ import { spawn } from 'child_process'
 import chalk from 'chalk'
 import { projRoot } from './paths'
 
+/**
+ * 执行shell命令
+ * @param command 命令
+ * @param cwd 工作目录 默认根目录
+ * @returns 命令执行结果
+ */
 export const run = async (command: string, cwd: string = projRoot) =>
   new Promise<void>((resolve, reject) => {
     const [cmd, ...args] = command.split(' ')

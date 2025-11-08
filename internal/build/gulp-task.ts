@@ -19,7 +19,7 @@ const make = () => mkdir(epOutput, { recursive: true })
  * 编译scss文件
  * @returns
  */
-const buildStyle = () => run('echo "build style"')
+const buildStyle = () => run('pnpm -C internal/build run buildStyle')
 
 export default series(
   //先清理dist文件夹

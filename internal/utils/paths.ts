@@ -21,6 +21,8 @@ export const epTyping = resolve(projRoot, 'typing')
 export const buildOutput = resolve(projRoot, 'dist')
 // test-ui 打包后的目录 D:/IdeaProject/test-ui/dist/test-ui
 export const epOutput = resolve(buildOutput, 'test-ui')
+// theme-chalk 目录 D:/IdeaProject/test-ui/packages/theme-chalk
+export const themeChalkFolder = resolve(pkgRoot, 'theme-chalk')
 
 /**
  * 路径重写器，用于将 @test-ui 替换为 test-ui

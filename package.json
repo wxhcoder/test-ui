@@ -9,7 +9,8 @@
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "lint:fix": "eslint . --ext .ts,.tsx,.vue --fix --quiet",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
-    "clean:dist": "rimraf dist"
+    "clean:dist": "rimraf dist",
+    "build": "pnpm -C internal/build run start"
   },
   "keywords": [],
   "author": "",
@@ -39,3 +40,4 @@
     "typescript-eslint": "^8.46.2"
   }
 }
+
