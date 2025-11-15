@@ -44,7 +44,7 @@ export const buildModules = async () => {
       })
     ],
     //排除不要的包
-    external: ['vue']
+    external: ['vue', 'element-plus']
   })
   //ES Module
   bundle.write({
@@ -65,4 +65,3 @@ export const buildModules = async () => {
     entryFileNames: `[name].cjs` // [name] 表示入口文件的文件名（不包含扩展名），也就是生产 .mjs 结尾的文件
   })
 }
-// buildModules()

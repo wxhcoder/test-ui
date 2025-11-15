@@ -35,3 +35,15 @@ export const pathRewriter = () => {
     return id
   }
 }
+
+const windowsSlashRE = /\\/g
+/**
+ * Normalize a path to use forward slashes.
+ * This is useful for ensuring consistent path formatting across different platforms.
+ */
+export function normalizePath(p: string): string {
+  if (typeof process !== 'undefined' && process.platform === 'win32') {
+    return p.replace(windowsSlashRE, '/')
+  }
+  return p
+}
