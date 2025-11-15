@@ -43,3 +43,7 @@ const a = '1'
 console.log(a)
 export type ButtonProps = ExtractPropTypes<typeof ButtonProps>
 export type ButtonEmits = typeof ButtonEmits
+
+export function sum(a: number, b: number) {
+  return a + b
+}

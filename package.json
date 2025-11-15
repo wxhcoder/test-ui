@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "dev": "npm run -C play dev",
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "lint:fix": "eslint . --ext .ts,.tsx,.vue --fix --quiet",
@@ -22,10 +22,12 @@
     "@test-ui/theme-chalk": "workspace:^",
     "@types/gulp": "^4.0.18",
     "gulp": "^5.0.1",
+    "jsdom": "^27.1.0",
     "rimraf": "^6.1.0",
     "sass": "^1.93.2",
     "sass-embedded": "^1.93.2",
     "typescript": "^5.9.3",
+    "vitest": "^4.0.8",
     "vue": "^3.5.22"
   },
   "devDependencies": {
@@ -40,4 +42,3 @@
     "typescript-eslint": "^8.46.2"
   }
 }
-
